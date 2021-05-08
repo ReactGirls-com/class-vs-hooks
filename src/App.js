@@ -1,23 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import MouseTracker from "./Klass";
+import MouseTrackerFn, { useMousePosition } from "./Hooks";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Class</h1>
+      <MouseTracker />
+
+      <h1>Hooks</h1>
+      <MouseTrackerFn />
+
+      <h1>Better mouse tracker</h1>
+      <BetterMouseTracker />
+    </div>
+  );
+}
+
+function BetterMouseTracker() {
+  const position = useMousePosition();
+  const { x, y } = position;
+  return (
+    <div>
+      [{position.x}, {position.y}]
+      <br />[{x}, {y}]
     </div>
   );
 }
